@@ -36,16 +36,33 @@ public class TwitchInputReaderService
         ConnectionCredentials twitchCredentials = twitchSecrets.ToConnectionCredentials();
 
         client = new TwitchClient();
-        client = new TwitchClient();
         client.Initialize(twitchCredentials, channelName);
-        client.Connect();
-
         client.OnJoinedChannel += OnJoinedChannel;
     }
 
     #endregion
 
     #region Methods
+
+    public void Connect()
+    {
+        if (client.IsConnected)
+        {
+            return;
+        }
+
+        client.Connect();
+    }
+
+    public void Disconnect()
+    {
+        if (!client.IsConnected)
+        {
+            return;
+        }
+
+        client.Disconnect();
+    }
 
     private void OnJoinedChannel(object? sender, OnJoinedChannelArgs e)
     {

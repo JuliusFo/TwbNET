@@ -16,4 +16,10 @@
     <ProjectReference Include="..\TwbNET.Resources\TwbNET.Resources.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Secrets\twitchSecrets.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -7,7 +7,7 @@ namespace TwbNET.Import.Services
     {
         public static TwitchSecrets ReadSecrets()
         {
-            return JsonConvert.DeserializeObject<TwitchSecrets>(File.ReadAllText("Models/twitchSecrets.json"))
+            return JsonConvert.DeserializeObject<TwitchSecrets>(File.ReadAllText("Secrets/twitchSecrets.json"))
                    ?? throw new InvalidOperationException("Could not read Twitch secrets from twitch_secrets.json");
         }
     }
