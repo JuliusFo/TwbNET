@@ -37,7 +37,9 @@ public class TwitchInputReaderService
 
         client = new TwitchClient();
         client.Initialize(twitchCredentials, channelName);
+
         client.OnJoinedChannel += OnJoinedChannel;
+        client.OnMessageReceived += OnMessageReceived;
     }
 
     #endregion
@@ -68,6 +70,11 @@ public class TwitchInputReaderService
     {
         Console.WriteLine(MessageResources.TwitchConnectionSuccess, channelName);
         reconnectTries = 0;
+    }
+
+    private void OnMessageReceived(object? sender, OnMessageReceivedArgs e)
+    {
+
     }
 
     #endregion
